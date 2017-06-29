@@ -1,12 +1,20 @@
-POST http://localhost:1234/api/orders
+POST https://cafe-app-again.now.sh/api/orders
 Content-Type: application/json
 
 {
   "products": [{
-    "product": "5953349ca4307c92d648531b",
+    "product": "59546510c8df3b00f3349b4c",
     "quantity": 2
   },{
-    "product": "595334a7a4307c92d648531c",
-    "quantity": 2
+    "product": "595465acc8df3b00f3349b4e",
+    "quantity": 3
   }]
 }
+
+###
+
+GET https://cafe-app-again.now.sh/api/orders
+
+###
+
+GET https://cafe-app-again.now.sh/api/orders/5954ae2717076d011ddf4439

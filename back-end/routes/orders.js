@@ -35,23 +35,23 @@ router.get('/api/orders/:id', (req, res) =>{
 
 router.post('/api/orders', (req, res) => {
   const products = req.body.products
-  const updatePromises = products.map((productOrder,index,array)=>{
+  const updatePromises = products.map((productOrder)=>{
     let quantityOrdered = productOrder.quantity
     let itemId = productOrder.product
     return Product.findById(itemId)
-    .then(productDocument=>{
-      if (productDocument.stockRemaining >= quantityOrdered){
-        productDocument.stockRemaining -= quantityOrdered
-        return productDocument.save()
-          .then(() => {
-            // Work out cost
-            return productDocument.price * quantityOrdered
-          })
-      } else {
-        throw new Error(`The item ${productDocument.name} does not have enough
-          quantity for that order`)
-      }
-    })
+      .then(productDocument=>{
+        if (productDocument.stockRemaining >= quantityOrdered){
+          productDocument.stockRemaining -= quantityOrdered
+          return productDocument.save()
+            .then(() => {
+              // Work out cost
+              return productDocument.price * quantityOrdered
+            })
+        } else {
+          throw new Error(`The item ${productDocument.name} does not have enough
+            quantity for that order`)
+        }
+      })
   })
 
   Promise.all(updatePromises)

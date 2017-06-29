@@ -1,20 +1,20 @@
-POST http://localhost:1234/api/products
+POST https://back-end-ylkyngweob.now.sh/api/products
 Content-Type: application/json
 
 {
-  "name": "Waffle",
-  "price": 12,
+  "name": "Muffin",
+  "price": 7,
   "category": "food",
-  "stockRemaining": 10
+  "stockRemaining": 25
 }
 
 ###
 
-GET http://localhost:1234/api/products
+GET https://back-end-ylkyngweob.now.sh/api/products
 
 ###
 
-PUT http://localhost:1234/api/products/5953319fbf99ea91aa224f5e
+PUT https://back-end-ylkyngweob.now.sh/api/products
 Content-Type: application/json
 
 {
@@ -26,8 +26,8 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:1234/api/products/59533179f38e9191629d6e5b
+DELETE https://back-end-ylkyngweob.now.sh/api/products/59533179f38e9191629d6e5b
 
 ###
 
-GET  http://localhost:1234/api/products/59533498ca307c928648531b
+GET  https://back-end-ylkyngweob.now.sh/api/products/59533498ca307c9286
