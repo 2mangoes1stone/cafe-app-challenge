@@ -2,12 +2,18 @@ import React, { Component } from 'react';
 import coffee from './coffee.gif'
 import './App.css';
 import ProductList from './component/ProductList'
-import Order from './component/Order'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 class App extends Component {
+  state = {
+    products: null,
+    error: null,
+  }
 
   render() {
+    
+    const { products, error } = this.state
+    
     return (
       <Router>
         <main>
@@ -24,12 +30,28 @@ class App extends Component {
             </nav>
 
             <div>
-              <ProductList />
+              {
+                !!products ? (
+                  <ProductList items={ products } />
+                ) : (
+                  'Loading movies…'
+                )
+              }
             </div>
           </div>
         </main>
       </Router>
     );
+  }
+  componentDidMount() {
+    fetch('https://cafe-app-again.now.sh/api/products')
+      .then(res => res.json())
+      .then(products => {
+        this.setState({ products })
+      })
+      .catch(error => {
+        this.setState({ error })
+      })
   }
 }
 
