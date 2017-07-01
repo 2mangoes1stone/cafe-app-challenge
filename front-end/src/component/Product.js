@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 export default function Product({
   name,
   price
@@ -8,7 +9,7 @@ export default function Product({
     <div>
       {
         <div>
-          <h3>{ name }<small>{'  '}{ price }</small></h3>
+          <h3>{ name }<small>{' '}{ price }</small></h3>
         </div>
       }
     </div>

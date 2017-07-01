@@ -1,5 +1,5 @@
 import React from 'react'
-import Product from './Product'
+import SelectProduct from './SelectProduct'
 
 export default function ProductList({
     items
@@ -8,7 +8,7 @@ export default function ProductList({
     <div>
     {
       items.map((item) => (
-        <Product 
+        <SelectProduct 
           key={ item._id }
           { ...item }
         />
