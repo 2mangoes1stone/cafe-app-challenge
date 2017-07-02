@@ -24,21 +24,26 @@ import React, { Component } from 'react'
 import Product from './Product'
 import SelectItem from './SelectItem'
 
-class componentName extends Component {
+class SelectProduct extends Component {
   constructor() {
     super()
     this.state = { quantity: 0 }
   }
 
-  handleIncrement = ({quantity}) => {
+  handleIncrement = () => {
     this.setState((prevState) => {
-      prevState.number += 1
+      return {
+        quantity: ++prevState.quantity
+      }
     })
   }
 
-  handleDecrement = ({quantity}) => {
+
+handleDecrement = () => {
     this.setState((prevState) => {
-      prevState.number -= 1
+      return {
+        quantity: --prevState.quantity
+      }
     })
   }
 
@@ -53,7 +58,7 @@ class componentName extends Component {
                 price={ this.props.price }
           />
           <SelectItem 
-                quantity={quantity}
+                quantity={ quantity }
                 onIncrement={this.handleIncrement}
                 onDecrement={this.handleDecrement}
           />
@@ -65,4 +70,4 @@ class componentName extends Component {
   }
 }
 
-export default componentName
+export default SelectProduct
